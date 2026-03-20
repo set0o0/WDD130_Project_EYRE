@@ -1,7 +1,7 @@
 3/20
 
 Seth provided some content for us to work with.  It doesn't look entirely complete, so let me know if/what you may need in addition to what he's given us.
-The text content he provided is saved as "/docs/project/content.pdf".  The images he provided are in the images directory
+The text content he provided is saved as "/docs/project/content.pdf".  The images he provided are in the images directory.
 
 
 
