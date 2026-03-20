@@ -4,7 +4,9 @@ Seth provided some content for us to work with.  It doesn't look entirely comple
 The text content he provided is saved as "/docs/project/content.pdf".  The images he provided are in the images directory
 
 
+
 3/16
+
 Grant, in case the email never gets to you, this is the message I sent:
 
 Hello.  This is your lead dev, Micah.
