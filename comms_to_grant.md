@@ -1,11 +1,27 @@
-3/20
+3/27  - email sent
+
+Sorry for not checking in earlier.  As I'm sure you all do as well, I have had a lot of stuff to juggle this week.
+
+I don't yet see that either of you have added your work to the repo for Seth Eyre's site.  If you stuck on something, or need some additional direction, let me know.  We need some html and css done to ideally show that we are making progress.
+
+Just as a reminder, Daniel is designing the home page (and header) and Grant is designing the "catalog" page.  If you want some inspiration for the CSS, I have made a good start on design themes for the blog page.  If you want to download blog.html and blog_styles.css, you can take a look at what I've got going on.  I don't care if you copy CSS elements from the styles file so that we have some consistency between pages.  Feel free to suggest changes as well.
+
+I have asked Seth to enable github pages so that hopefully we can see how the site is turning out as we add stuff to the repo.  I don't think it is currently enabled yet.
+
+
+Thanks guys.
+
+
+
+
+3/20  - email sent
 
 Seth provided some content for us to work with.  It doesn't look entirely complete, so let me know if/what you may need in addition to what he's given us.
 The text content he provided is saved as "/docs/project/content.pdf".  The images he provided are in the images directory.
 
 
 
-3/16
+3/16  - email sent
 
 Grant, in case the email never gets to you, this is the message I sent:
 
