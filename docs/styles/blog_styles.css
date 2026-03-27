@@ -1,0 +1,94 @@
+body {
+    background-color: #693335;
+    /* justify-items: center;
+    justify-content: center;
+    align-items: center; */
+    padding: 0px;
+    margin: 0px;
+    font-family: "Open Sans";
+    align-self: center;
+    align-items:center;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Google Sans";
+    margin: 0;
+}
+
+/* p {
+    margin: 0;
+} */
+
+h4 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+main {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #F3E8C1;
+    border: 2px solid #55503d;
+    /* justify-content: center; */
+}
+
+.blog_post {
+    /* padding: 50px 100px; */
+    width: 75%;
+    margin: 0 auto 133px;
+    
+}
+
+.blog_post div {
+    border: solid #55503d;
+    border-width: 0px 0px 2px 2px;
+    /* margin: 50px; */
+    padding: 20px 52px 18px 50px;
+    /* background: #ddd2ac; */
+    background-image: linear-gradient(to top right, rgb(189, 180, 147),rgba(221,210,172,0))
+}
+
+.blog_post div:hover {
+    border: solid #55503d;
+    border-width: 2px 2px 0px 0px;
+    /* margin: 50px; */
+    padding: 18px 50px 20px 52px;
+    /* background: #ddd2ac; */
+    background-image: linear-gradient(to bottom left, rgb(189, 180, 147),rgba(221,210,172,0))
+}
+
+#goal_box{
+    background-color: rgb(189, 180, 147);
+    padding: 50px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.goal {
+    border: solid #55503d;
+    border-width: 0px 0px 2px 2px;
+    padding: 20px 50px;
+    margin: 20px 0px;
+}
+
+#blog_image {
+    width: 100%;
+    /* margin: 0 auto; */
+    text-align: center;
+    
+}
+
+#blog_image img {
+    border: 10px solid #55503d;
+    /* margin: 0 auto; */
+    width: 80%;
+    margin: 50px 0px;
+}
+#blog_image img:hover {
+    border: 15px solid #ddd2a3;
+    /* margin: 0 auto; */
+    width: 80%;
+    margin: 45px 0px;
+}
