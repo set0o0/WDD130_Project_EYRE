@@ -1,0 +1,676 @@
+/* ══════════════════════════════════════════════════
+   CSS Header (WDD 130 Requirement)
+   ──────────────────────────────────────────────────
+   Team Name:    Seth Eyre Personal Blog
+   Contributors: Client: Seth Eyre | Lead: Seth Eyre
+   Date:         2026-03-31
+   Source:       [0] WDD 130 Course Instructions
+                 [1] Course: BYU-Idaho WDD 130
+                 [2] github.com/setheyre (placeholder)
+   ══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   CSS Variables
+   - Every tag, class, and id will reference these
+   ══════════════════════════════════════════════════ */
+:root {
+  --cream:    #F3E8C1;
+  --maroon:   #693335;
+  --teal:     #68B0AB;
+  --forest:   #4D6F66;
+  --ink:      #2a1e1e;
+  --card-bg:  rgba(255, 255, 255, 0.55);
+  --highlight-yellow: rgba(255, 220, 80, 0.45);
+  --highlight-teal:   rgba(104, 176, 171, 0.30);
+}
+
+/* ══════════════════════════════════════════════════
+   Reset & Base
+   ══════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* enables anchor-link smooth scrolling */
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Noise texture overlay — decorative, pointer-events disabled */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ══════════════════════════════════════════════════
+   TEXT-LEVEL SEMANTICS
+   <mark>, <strong>, <em>, <cite>, <small>, <time>
+   ══════════════════════════════════════════════════ */
+
+/* <mark> — highlight with color, no default yellow */
+mark.highlight-no-filter {
+  background-color: var(--highlight-yellow);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+
+mark.highlight-key {
+  background-color: var(--highlight-teal);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+
+/* <strong> inherits browser bold; just ensure color stays correct */
+strong {
+  color: var(--maroon);
+}
+
+/* <em> in hero — stylistic italic override */
+em {
+  font-style: italic;
+  color: var(--forest);
+}
+
+/* <cite> — attribution styling */
+cite.entry-cite {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--teal);
+  margin-top: 0.3rem;
+  font-style: normal;
+  letter-spacing: 0.05em;
+}
+
+/* <small> — fine-print / side comment */
+small.about-note {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(243, 232, 193, 0.65);
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+
+/* <time> — treat like card-date; no special visual needed, semantic only */
+time.card-date {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+/* ══════════════════════════════════════════════════
+   GROUPING / MEDIA DOCUMENT ELEMENTS
+   <figure>, <figcaption>, <blockquote>, <details>, <summary>
+   ══════════════════════════════════════════════════ */
+
+/* <figure> — hero logo card */
+figure#hero-figure {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+}
+
+/* <figcaption> — caption beneath figure content */
+figcaption.logo-tagline {
+  color: rgba(243, 232, 193, 0.75);
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* <blockquote> — extended quotation in blog entries */
+blockquote.entry-quote {
+  border-left: 3px solid var(--teal);
+  padding: 0.6rem 1rem;
+  margin: 0.8rem 0 0.3rem;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: rgba(243, 232, 193, 0.85);
+  background: rgba(104, 176, 171, 0.1);
+  border-radius: 0 4px 4px 0;
+}
+
+/* <details> — expandable card content */
+details.card-details {
+  margin-top: 0.8rem;
+  border-top: 1px solid rgba(105, 51, 53, 0.1);
+  padding-top: 0.7rem;
+}
+
+/* <summary> — clickable label for <details> */
+summary {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  cursor: pointer;
+  list-style: none; /* remove default arrow on some browsers */
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::before {
+  content: '▸ ';
+  font-size: 0.7rem;
+}
+
+details[open] summary::before {
+  content: '▾ ';
+}
+
+.card-details-body {
+  font-size: 0.84rem;
+  color: #5a4040;
+  line-height: 1.65;
+  margin-top: 0.6rem;
+}
+
+/* ══════════════════════════════════════════════════
+   NAVIGATION  (#main-nav)
+   Structural Layout: <nav>
+   ══════════════════════════════════════════════════ */
+nav#main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: rgba(105, 51, 53, 0.97);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+}
+
+.nav-logo {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: var(--teal);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s;
+}
+
+/* Underline hover animation */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--teal);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════
+   MAIN  (#page-main)
+   Structural Layout: <main>
+   ══════════════════════════════════════════════════ */
+main#page-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════
+   HERO HEADER  (#hero)
+   Structural Layout: <header>
+   ══════════════════════════════════════════════════ */
+header#hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 88vh;
+  align-items: center;
+  padding: 4rem 2.5rem 4rem 5rem;
+  gap: 3rem;
+  overflow: hidden;
+}
+
+/* Diagonal teal background block */
+header#hero::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 52%;
+  height: 130%;
+  background: linear-gradient(160deg, var(--teal) 0%, var(--forest) 100%);
+  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--maroon);
+  margin-bottom: 1.4rem;
+}
+
+/* em inside hero-title gets forest color (overrides base em) */
+.hero-title em {
+  font-style: normal;
+  color: var(--forest);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4a3232;
+  max-width: 420px;
+  margin-bottom: 2.2rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-img-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeUp 1.1s 0.15s ease both;
+}
+
+.logo-text {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.logo-text span {
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════════════════ */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+}
+
+.btn-primary {
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+.btn-outline {
+  border: 2px solid var(--maroon);
+  color: var(--maroon);
+  background: transparent;
+}
+
+/* ══════════════════════════════════════════════════
+   SHARED SECTION LABELS
+   ══════════════════════════════════════════════════ */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--maroon);
+  margin-bottom: 1rem;
+}
+
+/* ══════════════════════════════════════════════════
+   INTRO STRIP  (#intro-strip)
+   Structural Layout: <aside>
+   ══════════════════════════════════════════════════ */
+aside#intro-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--maroon);
+}
+
+.strip-item {
+  padding: 2.2rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.25s;
+}
+
+.strip-item:last-child {
+  border-right: none;
+}
+
+.strip-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.strip-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.strip-item h3 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.strip-item p {
+  font-size: 0.85rem;
+  color: rgba(243, 232, 193, 0.72);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════
+   RECENT ENTRIES  (#recent-entries)
+   Structural Layout: <section>
+   Each card = <article>
+   ══════════════════════════════════════════════════ */
+section#recent-entries {
+  padding: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.see-all {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.see-all:hover {
+  color: var(--maroon);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+/* <article> = each blog card */
+article.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(105, 51, 53, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  transition: transform 0.22s, box-shadow 0.22s;
+  cursor: pointer;
+}
+
+article.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(105, 51, 53, 0.14);
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.card-img-placeholder.p1 { background: linear-gradient(135deg, #68B0AB 0%, #4D6F66 100%); }
+.card-img-placeholder.p2 { background: linear-gradient(135deg, #693335 0%, #8a4a4c 100%); }
+.card-img-placeholder.p3 { background: linear-gradient(135deg, #4D6F66 0%, #68B0AB 100%); }
+
+.card-body {
+  padding: 1.3rem;
+}
+
+.card-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--maroon);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.card-excerpt {
+  font-size: 0.84rem;
+  color: #5a4040;
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════
+   ABOUT BAND  (#about)
+   Structural Layout: <section>
+   ══════════════════════════════════════════════════ */
+section#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-img-side {
+  background: linear-gradient(160deg, var(--teal) 0%, var(--forest) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative diagonal stripe pattern overlay */
+.about-img-side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.04) 20px,
+    rgba(255, 255, 255, 0.04) 40px
+  );
+}
+
+.about-text-side {
+  background: var(--maroon);
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text-side .section-label {
+  color: var(--teal);
+}
+
+.about-text-side .section-title {
+  color: var(--cream);
+}
+
+.about-text-side p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(243, 232, 193, 0.82);
+  margin-bottom: 0.8rem;
+}
+
+.about-text-side .btn-primary {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+/* ══════════════════════════════════════════════════
+   FOOTER  (#site-footer)
+   Structural Layout: <footer>
+   ══════════════════════════════════════════════════ */
+footer#site-footer {
+  background: var(--ink);
+  color: rgba(243, 232, 193, 0.55);
+  text-align: center;
+  padding: 1.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+footer#site-footer a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* ══════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — max-width: 900px
+   ══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+
+  header#hero {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    min-height: auto;
+    text-align: center;
+  }
+
+  header#hero::after { display: none; }
+
+  .hero-sub { max-width: 100%; }
+
+  .btn-group { justify-content: center; }
+
+  aside#intro-strip { grid-template-columns: 1fr; }
+
+  .strip-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  section#recent-entries { padding: 3rem 1.5rem; }
+
+  .cards { grid-template-columns: 1fr; }
+
+  section#about { grid-template-columns: 1fr; }
+
+  .about-img-side { min-height: 200px; }
+
+  .recent-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}

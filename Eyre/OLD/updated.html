@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seth Eyre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ NAV — Structural Layout: <nav> ══════════════════ -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">Seth <span>Eyre</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Daily Blog</a></li>
+      <li><a href="#">Catalog</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ MAIN — Structural Layout: <main> ════════════════ -->
+  <main id="page-main">
+
+    <!-- ══ HERO — Structural Layout: <header> ══════════════ -->
+    <header id="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Personal Journal &amp; Blog</p>
+        <h1 class="hero-title">Life in <em>Progress.</em><br><strong>Documented.</strong></h1>
+        <p class="hero-sub">
+          A running record of challenges, lessons, and the small moments that shape who I'm becoming.
+          Real growth, real stories — <mark class="highlight-yellow">no filter.</mark>
+        </p>
+        <div class="btn-group">
+          <a href="#recent-entries" class="btn btn-primary">Read Latest Entry</a>
+          <a href="#" class="btn btn-outline">Browse Catalog</a>
+        </div>
+      </div>
+
+      <div class="hero-img-wrap">
+        <!-- <figure> + <figcaption> — Grouping / Media Document Elements -->
+        <figure id="hero-figure">
+          <div class="logo-text">Seth <span>Eyre</span></div>
+          <figcaption class="logo-tagline">
+            ✈ &nbsp; 🍳 &nbsp; 🌴 &nbsp; 🏍
+            <br>Adventures · Food · Life
+          </figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <!-- ══ INTRO STRIP — Structural Layout: <aside> ════════ -->
+    <aside id="intro-strip">
+      <div class="strip-item">
+        <div class="strip-icon">📓</div>
+        <h3>Daily Blog</h3>
+        <p>Journal-style entries tracking progress, lessons, and the everyday moments worth remembering.</p>
+      </div>
+      <div class="strip-item">
+        <div class="strip-icon">🗂️</div>
+        <h3>Catalog</h3>
+        <p>A searchable archive of all entries — organized, browsable, and easy to revisit.</p>
+      </div>
+      <div class="strip-item">
+        <div class="strip-icon">🌱</div>
+        <h3>Growth Over Time</h3>
+        <p>Patterns emerge when you write consistently. Watch ideas, habits, and goals evolve.</p>
+      </div>
+    </aside>
+
+    <!-- ══ RECENT ENTRIES — Structural Layout: <section> + <article> ══ -->
+    <section id="recent-entries">
+      <div class="recent-header">
+        <div>
+          <p class="section-label">Fresh off the pen</p>
+          <h2 class="section-title">Recent Entries</h2>
+        </div>
+        <a href="#" class="see-all">See All →</a>
+      </div>
+
+      <div class="cards">
+
+        <!-- <article> — self-contained blog entry -->
+        <article class="card" id="entry-march-25">
+          <div class="card-img-placeholder p1">🌅</div>
+          <div class="card-body">
+            <!-- <time> — machine-readable date -->
+            <time class="card-date" datetime="2026-03-25">March 25, 2026</time>
+            <h3 class="card-title">Starting Something New</h3>
+            <p class="card-excerpt">Every journey starts somewhere. Here's why I decided to put it all in writing — the good, the awkward, and the in-between.</p>
+            <!-- <details> + <summary> — expandable content -->
+            <details class="card-details">
+              <summary>Read more</summary>
+              <p class="card-details-body">Starting a blog felt intimidating at first. I kept asking myself: <em>who would even want to read this?</em> But then I realized — it's not for an audience yet. It's for me.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="card" id="entry-march-18">
+          <div class="card-img-placeholder p2">🍳</div>
+          <div class="card-body">
+            <time class="card-date" datetime="2026-03-18">March 18, 2026</time>
+            <h3 class="card-title">What I Cooked, What I Learned</h3>
+            <p class="card-excerpt">Food is one of those things that tells a story without words.</p>
+            <details class="card-details">
+              <summary>Read more</summary>
+              <!-- <blockquote> + <cite> — Grouping / Text-Level Semantics -->
+              <blockquote class="entry-quote">"Cooking is about confidence as much as technique."</blockquote>
+              <cite class="entry-cite">— Gordon Ramsay</cite>
+              <p class="card-details-body">This week I learned that failure in the kitchen is just a lesson with seasoning. I burned the garlic twice and still ended up with something worth eating.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="card" id="entry-march-10">
+          <div class="card-img-placeholder p3">✈️</div>
+          <div class="card-body">
+            <time class="card-date" datetime="2026-03-10">March 10, 2026</time>
+            <h3 class="card-title">On the Road Again</h3>
+            <p class="card-excerpt">Movement clears the head. A quick trip reminded me how much perspective you gain when you step outside your usual four walls.</p>
+            <details class="card-details">
+              <summary>Read more</summary>
+              <p class="card-details-body">I only went about two hours out but it felt like a world away. <mark class="highlight-teal">Distance gives you clarity on what actually matters.</mark></p>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ══ ABOUT — Structural Layout: <section> ════════════ -->
+    <section id="about">
+      <div class="about-img-side" aria-hidden="true">🙋‍♂️</div>
+      <div class="about-text-side">
+        <p class="section-label">The person behind the page</p>
+        <h2 class="section-title">Hey, I'm Seth.</h2>
+        <p>This blog is part personal archive, part experiment. I write to stay accountable, to process what's happening, and to look back someday at how far things have come.</p>
+        <!-- <small> — Text-Level Semantics: fine print / side comment -->
+        <small class="about-note">Right now it's just for me — but once I learn enough to make it worth sharing, I'll open it up.</small>
+        <a href="#" class="btn btn-primary">More About Me</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER — Structural Layout: <footer> ════════════ -->
+  <footer id="site-footer">
+    <p>&copy; <time datetime="2026">2026</time> Seth Eyre &nbsp;·&nbsp; Built for <a href="#">WDD 130</a> &nbsp;·&nbsp; BYU–Idaho</p>
+  </footer>
+
+</body>
+</html>
